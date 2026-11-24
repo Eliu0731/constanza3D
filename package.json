@@ -1,0 +1,12 @@
+{
+  "name": "constanza-3d",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Visor 3D interactivo de la hoja topográfica Constanza 1:50 000 sobre relieve (three.js)",
+  "scripts": {
+    "build": "esbuild src/viewer.js --bundle --minify --format=iife --outfile=docs/viewer.js",
+    "serve": "python3 -m http.server 8000 --directory docs"
+  },
+  "dependencies": { "three": "^0.170.0" },
+  "devDependencies": { "esbuild": "^0.24.0" }
+}
