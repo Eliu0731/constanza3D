@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,"><title>Constanza 3D — hoja topográfica 1:50 000</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1c1c1c}
+body{background:radial-gradient(ellipse at 50% 35%,#fbfaf7 0%,#e6e3dc 100%);overflow:hidden}
+#vista{position:absolute;inset:0}#vista canvas{display:block;width:100%;height:100%;touch-action:none}
+h1{position:absolute;left:18px;top:12px;margin:0;font-size:24px;letter-spacing:-.01em;pointer-events:none}
+h1 small{display:block;font-size:12px;font-weight:400;color:#555;margin-top:2px}
+#panel{position:absolute;right:14px;top:14px;width:230px;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);border:1px solid #d8d4ca;border-radius:12px;padding:12px;font-size:12.5px}
+#panel label{display:flex;justify-content:space-between;margin:8px 0 2px;color:#444}
+#panel input[type=range]{width:100%;accent-color:#6b5b3e}
+.b{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
+button{font:inherit;padding:6px 4px;border:1px solid #cfc9bb;background:#fff;border-radius:8px;cursor:pointer}
+button:hover{background:#f1eee6}button.on{background:#6b5b3e;color:#fff;border-color:#6b5b3e}
+#ayuda{position:absolute;left:18px;bottom:34px;font-size:12px;color:#555;line-height:1.5;pointer-events:none}
+#cred{position:absolute;left:18px;bottom:10px;font-size:11px;color:#777;pointer-events:none}
+#carga{position:absolute;inset:0;display:grid;place-items:center;font-size:15px;color:#555;pointer-events:none}
+@media(max-width:600px){#panel{width:190px;font-size:11.5px;padding:9px}h1{font-size:19px}#ayuda{display:none}}
+</style></head><body>
+<div id="vista"></div>
+<h1>Constanza<small>Hoja topográfica 1:50 000 sobre relieve 3D</small></h1>
+<div id="panel">
+  <div class="b"><button data-vista="pajaro">Vuelo de pájaro</button><button data-vista="cenital">Cenital</button>
+  <button data-vista="sur">Desde el sur</button><button data-vista="norte">Desde el norte</button>
+  <button data-vista="oeste">Desde el oeste</button><button data-vista="este">Desde el este</button></div>
+  <button id="rot" style="width:100%">Rotación automática</button>
+  <label>Exageración vertical <b id="exv">×2.0</b></label><input id="ex" type="range" min="0.3" max="5" step="0.1" value="2">
+  <label>Sombreado <b id="luzv"></b></label><input id="luz" type="range" min="0" max="100" value="60">
+  <label>Azimut del sol <b id="azv"></b></label><input id="az" type="range" min="0" max="360" value="315">
+  <label>Elevación del sol <b id="elv"></b></label><input id="el" type="range" min="10" max="85" value="38">
+</div>
+<div id="ayuda">Arrastra: rotar · Rueda / pellizco: acercar · Clic derecho o dos dedos: desplazar</div>
+<div id="cred">Hoja 6072 I Constanza 1:50 000 (ICM/DMA, 1988) · Relieve: Copernicus GLO-30 · Elaborado por Claude</div>
+<div id="carga">Cargando relieve…</div>
+<script src="viewer.js"></script>
+</body></html>
